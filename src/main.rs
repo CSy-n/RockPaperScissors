@@ -1,10 +1,6 @@
 
-extern crate rockpaperscissors;
-
-use std::io;
-use std::io::{Write};
-
-use rockpaperscissors::util;
+use std::io::{self, Write};
+use RockPaperScissors::util;
 
 fn main() {
     
@@ -14,9 +10,14 @@ fn main() {
   io::stdout().flush();
 
 
-  read_line();
+  util::read_line();
 
 }
+
+
+
+
+
 
 fn print_banner() {
    println!("===============================");
