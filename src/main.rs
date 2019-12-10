@@ -1,10 +1,4 @@
 
-use std::io::{self, Write};
-use RockPaperScissors::util;
-
-
-
-
 /**
   
   Rock Paper Scissors:
@@ -36,26 +30,55 @@ use RockPaperScissors::util;
   - Display Results [Win, Loss]
   - Return to Menu [RPS Menu]
  
+
+
+  Understanding the Module System
+
+
  */
+
+use std::io::{self, Write};
+use rand::Rng;
+use RockPaperScissors::util;
+
+enum MenuOption {
+  ROCK, PAPER, SCISSORS, QUIT
+}
 
 enum GameItem {
   ROCK, PAPER, SCISSORS
 }
 
+
+/*
+  TODO:
+
+  Echo user result back to them. . .
+*/
 fn main() {
     
   print_banner();
+  display_winner();
+  display_lost();
 
   print!(">>> ");
   io::stdout().flush();
 
+  generate_game_item();
 
   util::read_line();
 
 }
 
+/*
+ Generate a Random RPS Item
+*/
 
-
+fn generate_game_item() -> GameItem {
+    let mut rng = rand::thread_rng();
+    rng.gen_range(0, 3);
+    GameItem::ROCK
+}
 
 
 
@@ -66,5 +89,21 @@ fn print_banner() {
    println!("1) Rock");
    println!("2) Paper");
    println!("3) Scissors");
+   println!("4) Quit");
 }
 
+fn display_winner() {
+   println!("============================== )");
+   println!(" 	<<<	WINNER!    >>>>   | |");
+   println!("============================== )");
+
+
+}
+
+fn display_lost() {
+   println!("===============================");
+   println!(" You Lost, Try Again?           |");
+   println!("===============================");
+
+
+}
