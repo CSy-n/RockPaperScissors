@@ -52,8 +52,6 @@ use rock_paper_scissors::game::*;
 fn main() {
     
   print_banner();
-  display_winner();
-  display_lost();
 
   print!(">>> ");
   io::stdout().flush().unwrap();
