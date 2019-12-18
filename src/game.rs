@@ -7,7 +7,7 @@ use rand::Rng;
 #[allow(dead_code)]
 #[derive(PartialEq)]
 pub enum GameOption {
-  ROCK, PAPER, SCISSORS, QUIT
+  ROCK, PAPER, SCISSORS, QUIT, INVALID
 }
 
 #[derive(Debug)]
@@ -22,7 +22,7 @@ pub enum GameResult {
  Generate a Random RPS Item
 */
 
-pub fn generate_game_option() -> GameOption {
+pub fn generate_random_option() -> GameOption {
     let option = GameOption::ROCK;
     let mut rng = rand::thread_rng();
   
@@ -63,6 +63,17 @@ pub fn check_winner(left: GameOption, right: GameOption) -> GameResult {
 }
 
 
+pub fn display_game_results(result: GameResult) {
+  if result == GameResult::WIN {
+      display_winner();
+   } else if result == GameResult::DRAW {
+      display_draw();
+   } else {
+      display_lost();
+   }
+}
+
+
 pub fn print_banner() {
    println!("===============================");
    println!("Rock Paper Scissors!          |");
@@ -76,6 +87,12 @@ pub fn print_banner() {
 pub fn display_lost() {
    println!("===============================");
    println!(" You Lost, Try Again?         |");
+   println!("===============================");
+}
+
+pub fn display_draw() {
+   println!("===============================");
+   println!("            |DRAW|            |");
    println!("===============================");
 }
 

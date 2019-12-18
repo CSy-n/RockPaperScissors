@@ -1,5 +1,5 @@
 [package]
-name = "RockPaperScissors"
+name = "rock_paper_scissors"
 version = "0.1.0"
 authors = ["Henda <alpha.phonecian@gmail.com>"]
 edition = "2018"
